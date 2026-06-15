@@ -1,0 +1,120 @@
+import JobController from "../src/controllers/JobController.js";
+import { authenticate, optionalAuthenticate } from "../middlewares/authenticate.js";
+
+
+const Routes = [
+  {
+    path: "/jobs/scan-content",
+    method: "POST",
+    controller: JobController,
+    action: "scanContent",
+    middlewares: [authenticate],
+  },
+  {
+    path: "/jobs",
+    method: "GET",
+    controller: JobController,
+    action: "list",
+    middlewares: [],
+  },
+  {
+    path: "/jobs/:id",
+    method: "GET",
+    controller: JobController,
+    action: "getById",
+    middlewares: [optionalAuthenticate],
+  },
+  {
+    path: "/jobs",
+    method: "POST",
+    controller: JobController,
+    action: "create",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/:id/checkout",
+    method: "POST",
+    controller: JobController,
+    action: "checkout",
+    middlewares: [authenticate],
+  },
+  {
+    path: "/jobs/:id",
+    method: "PUT",
+    controller: JobController,
+    action: "update",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/:id",
+    method: "DELETE",
+    controller: JobController,
+    action: "remove",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/cost-estimate",
+    method: "POST",
+    controller: JobController,
+    action: "costEstimate",
+    middlewares: [authenticate],
+  },
+  {
+    path: "/jobs/:id/duplicate",
+    method: "POST",
+    controller: JobController,
+    action: "duplicate",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/:id/renew",
+    method: "POST",
+    controller: JobController,
+    action: "renew",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/:id/addon",
+    method: "POST",
+    controller: JobController,
+    action: "activateAddon",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/:id/track-click",
+    method: "POST",
+    controller: JobController,
+    action: "trackClick",
+    middlewares: [],
+  },
+  {
+    path: "/jobs/:id/resubmit",
+    method: "POST",
+    controller: JobController,
+    action: "resubmit",
+    middlewares: [authenticate],
+    autoCommit: true,
+  },
+  {
+    path: "/jobs/:id/report",
+    method: "GET",
+    controller: JobController,
+    action: "getReport",
+    middlewares: [authenticate],
+  },
+  {
+    path: "/jobs/scrape/jobsireland",
+    method: "POST",
+    controller: JobController,
+    action: "scrapeJobsIreland",
+    middlewares: [authenticate],
+  },
+];
+
+export default Routes;

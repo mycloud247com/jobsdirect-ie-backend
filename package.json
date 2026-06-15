@@ -1,0 +1,38 @@
+{
+  "name": "jobsdirect-ie-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js",
+    "migrate": "node migrate.js up",
+    "migrate:down": "node migrate.js down",
+    "migrate:status": "node migrate.js status",
+    "seed": "node seed.js",
+    "db:setup": "node migrate.js up && node seed.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1040.0",
+    "@aws-sdk/s3-request-presigner": "^3.1040.0",
+    "bcrypt": "^5.1.1",
+    "cheerio": "^1.2.0",
+    "compression": "^1.8.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.4.0",
+    "form-data": "^4.0.5",
+    "helmet": "^8.1.0",
+    "ioredis": "^5.10.1",
+    "jsonwebtoken": "^9.0.2",
+    "mailgun.js": "^13.0.0",
+    "multer": "^2.1.1",
+    "node-cron": "^4.2.1",
+    "pg": "^8.13.1",
+    "sequelize": "^6.37.7",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3"
+  }
+}

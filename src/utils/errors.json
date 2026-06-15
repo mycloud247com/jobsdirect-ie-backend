@@ -1,0 +1,18 @@
+{
+  "BAD_REQUEST": { "status": 400, "message": "Bad request" },
+  "UNAUTHORIZED": { "status": 401, "message": "Unauthorized" },
+  "FORBIDDEN": { "status": 403, "message": "Forbidden" },
+  "NOT_FOUND": { "status": 404, "message": "Resource not found" },
+  "CONFLICT": { "status": 409, "message": "Resource already exists" },
+  "VALIDATION_ERROR": { "status": 422, "message": "Validation failed" },
+  "INTERNAL_ERROR": { "status": 500, "message": "Internal server error" },
+  "USER_NOT_FOUND": { "status": 404, "message": "User not found" },
+  "INVALID_CREDENTIALS": { "status": 401, "message": "Invalid email or password" },
+  "EMAIL_ALREADY_EXISTS": { "status": 409, "message": "An account with this email already exists" },
+  "INVALID_TOKEN": { "status": 401, "message": "Invalid or expired token" },
+  "EMAIL_NOT_VERIFIED": { "status": 403, "message": "Please verify your email before signing in" },
+  "JOB_NOT_FOUND": { "status": 404, "message": "Job not found" },
+  "EMPLOYER_NOT_FOUND": { "status": 404, "message": "Employer profile not found" },
+  "APPLICATION_NOT_FOUND": { "status": 404, "message": "Application not found" },
+  "STRIPE_NOT_CONFIGURED": { "status": 503, "message": "Stripe is not configured" }
+}
