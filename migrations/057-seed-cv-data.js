@@ -1,8 +1,26 @@
+import bcrypt from "bcrypt";
 import crypto from "crypto";
 const uuid = () => crypto.randomUUID();
+const hash = (pw) => bcrypt.hashSync(pw, 12);
 
 export async function up(qi) {
   const userId = 'ed5326dd-a249-41ce-b25a-c921e88f3246';
+  const employeeId = uuid();
+  const userEmail = 'liam.oconnor.demo@jobsdirect.ie';
+
+  const [existingUsers] = await qi.sequelize.query(`SELECT id FROM users WHERE id = '${userId}' LIMIT 1`);
+  if (!existingUsers.length) {
+    await qi.sequelize.query(`INSERT INTO users (id, first_name, last_name, email, password, role, email_verified, status, created_at, updated_at) VALUES
+      ('${userId}', 'Liam', 'O''Connor', '${userEmail}', '${hash("Demo1234!")}', 'employee', true, 'active', NOW(), NOW())
+    `);
+  }
+
+  const [existingEmployees] = await qi.sequelize.query(`SELECT id FROM employees WHERE user_id = '${userId}' LIMIT 1`);
+  if (!existingEmployees.length) {
+    await qi.sequelize.query(`INSERT INTO employees (id, user_id, first_name, last_name, phone, county, right_to_work, driving_licence, languages, skills, experience_years, availability, desired_job_type, desired_location, created_at, updated_at) VALUES
+      ('${employeeId}', '${userId}', 'Liam', 'O''Connor', '+353 87 999 8888', 'Dublin', 'irish_citizen', 'full_b', 'English, Urdu', '[]', 7, 'immediately', 'full_time', 'Dublin', NOW(), NOW())
+    `);
+  }
 
   // Update existing CV with content
   const [cvs] = await qi.sequelize.query(`SELECT id FROM cvs WHERE user_id = '${userId}' LIMIT 1`);
