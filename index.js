@@ -20,6 +20,7 @@ const allowedOrigins = [
   "http://localhost:5174",
   "http://localhost:3001",
   "https://jobsdirect-frontend.vercel.app",
+  "https://jobsdirect-ie-frontend.vercel.app",
   "https://jobsdirect.ie",
   "https://www.jobsdirect.ie",
   "https://jobsdirect-frontend-v9l1.vercel.app",
